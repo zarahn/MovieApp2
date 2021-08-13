@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
 const DetailScreen = ({route}) => {
     return (
         <View style={styles.screen}>
-            <Text style={styles.text}>{route.params.id}</Text>
+            <Text style={styles.text}>{route.params?.id}</Text>
             <Image
                 source={{
-                    uri: route.params.poster,
+                    uri: route.params?.poster,
                 }}
                 resizeMode="cover"
                 style={{width: 100, height: 150, borderRadius: 10}}

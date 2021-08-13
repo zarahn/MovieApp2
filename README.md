@@ -25,11 +25,11 @@
 
 > we created a directory named `/User/_yourname_/Documents/ReactNative`.
 > 
-> Go to the directory: `cd Docuements/ReactNative/`
+> Go to the directory: `cd Documents/ReactNative/`
 > 
 > `ls -l`
 
-2. Check that your computer has Export first
+2. Check that your computer has Expo first
 > `expo -V` : check version of your tool (***Expo*** here)
 
 3. Create a new project () 
@@ -45,6 +45,6 @@
 > 
 > e.g. `rm MovieApp`
 
-## Run Project 
+## Run Project from github / online examples
 
 > `npm install`

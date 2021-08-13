@@ -5,7 +5,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 // import screens
 import Movies from '../screens/Movies';
-import InfoNavigator from "./InfoNavigator";
 import Favorites from '../screens/Favorites';
 import Details from '../screens/Details'
 const Tab = createBottomTabNavigator();
@@ -18,8 +17,10 @@ const configIcon = ({ route, focused, color, size }) => {
             iconName = focused ? 'movie' : 'movie-outline';
             break;
         case '我的最愛':
-        case 'Details':
             iconName = focused ? 'heart' : 'heart-outline';
+            break;
+        case '詳情':
+            iconName = focused ? 'information' : 'information-outline';
             break;
         default:
             break;
@@ -40,7 +41,6 @@ const RootNavigator = () => {
             })}>
                 <Tab.Screen
                     name="上映中"
-                    // component={InfoNavigator}
                     component={Movies}
                 />
                 <Tab.Screen
@@ -48,7 +48,7 @@ const RootNavigator = () => {
                     component={Favorites}
                 />
                 <Tab.Screen
-                    name="Details"
+                    name="詳情"
                     component={Details}
                 />
             </Tab.Navigator>

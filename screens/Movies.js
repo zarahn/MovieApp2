@@ -41,17 +41,13 @@ const Movies = ({ navigation }) => {
                         return (
                             <View style={{marginVertical: 12}}>
                                 <View style={{flexDirection: 'row', flex: 1}}>
-                                    <TouchableOpacity
-                                        onPress={() => navigation.navigate('Detail', {id: item.id, poster: IMAGE_URL})}
-                                        style={styles.button}>
-                                        <Image
-                                            source={{
-                                                uri: IMAGE_URL,
-                                            }}
-                                            resizeMode="cover"
-                                            style={{width: 100, height: 150, borderRadius: 10}}
-                                        />
-                                    </TouchableOpacity>
+                                    <Image
+                                        source={{
+                                            uri: IMAGE_URL,
+                                        }}
+                                        resizeMode="cover"
+                                        style={{width: 100, height: 150, borderRadius: 10}}
+                                    />
                                     <View style={{flex: 1, marginLeft: 12}}>
                                         <View>
                                             <Text style={{fontSize: 22, paddingRight: 16}}>
@@ -108,7 +104,6 @@ const Movies = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     button: {
-        // backgroundColor:'#0275d8',
         backgroundColor:'transparent',
         paddingVertical: 5,
         paddingHorizontal: 10
