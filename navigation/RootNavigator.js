@@ -13,13 +13,13 @@ const configIcon = ({ route, focused, color, size }) => {
     let iconName;
     let iconSize;
     switch(route.name) {
-        case '上映中':
+        case 'Movies':
             iconName = focused ? 'movie' : 'movie-outline';
             break;
-        case '我的最愛':
+        case 'Favorites':
             iconName = focused ? 'heart' : 'heart-outline';
             break;
-        case '詳情':
+        case 'Details':
             iconName = focused ? 'information' : 'information-outline';
             break;
         default:
@@ -40,16 +40,25 @@ const RootNavigator = () => {
                 tabBarInactiveTintColor: 'gray',
             })}>
                 <Tab.Screen
-                    name="上映中"
+                    name="Movies"
                     component={Movies}
+                    options={{
+                        title: "上映中"
+                    }}
                 />
                 <Tab.Screen
-                    name="我的最愛"
+                    name="Favorites"
                     component={Favorites}
+                    options={{
+                        title: "我的最愛"
+                    }}
                 />
                 <Tab.Screen
-                    name="詳情"
+                    name="Details"
                     component={Details}
+                    options={{
+                        title: "詳情"
+                    }}
                 />
             </Tab.Navigator>
         </NavigationContainer>

@@ -13,7 +13,7 @@ const Favorites = () => {
         removeFromFavorites(movie);
     };
     return (
-        <View style={{flex: 1, marginTop: 44, paddingHorizontal: 20}}>
+        <View style={{flex: 1, marginTop: 20, paddingHorizontal: 20}}>
             <Text style={{fontSize: 22}}>Favorites</Text>
             <View style={{flex: 1, marginTop: 8}}>
                 {favorites.length === 0 ? (

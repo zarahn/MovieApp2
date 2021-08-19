@@ -4,7 +4,7 @@ import {StyleSheet, View, Text, FlatList, Image, TouchableOpacity} from 'react-n
 import {useSelector, useDispatch} from 'react-redux';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {getMovies, addFavorite, removeFavorite} from '../redux/actions';
+import {getMovies, addFavorite, removeFavorite, getMovieDetail} from '../redux/actions';
 
 const Movies = ({ navigation }) => {
     const {movies, favorites} = useSelector(state => state.moviesReducer);
@@ -29,8 +29,19 @@ const Movies = ({ navigation }) => {
         return favorites.filter(item => item.id === movie.id).length > 0;
     };
 
+    const DetailTrigger = ({item, innerTags}) => (
+        <TouchableOpacity
+            onPress={() => {
+                dispatch(getMovieDetail(item.id));
+                navigation.navigate('Details', {id: item.id});
+            }}
+            style={styles.button}>
+            {innerTags}
+        </TouchableOpacity>
+    );
+
     return (
-        <View style={{flex: 1, marginTop: 44, paddingHorizontal: 20}}>
+        <View style={{flex: 1, marginTop: 20, paddingHorizontal: 20}}>
             <Text style={{fontSize: 22}}>Popular Movies</Text>
             <View style={{flex: 1, marginTop: 12}}>
                 <FlatList
@@ -41,13 +52,13 @@ const Movies = ({ navigation }) => {
                         return (
                             <View style={{marginVertical: 12}}>
                                 <View style={{flexDirection: 'row', flex: 1}}>
-                                    <Image
-                                        source={{
-                                            uri: IMAGE_URL,
-                                        }}
-                                        resizeMode="cover"
-                                        style={{width: 100, height: 150, borderRadius: 10}}
-                                    />
+                                    <DetailTrigger innerTags={(
+                                        <Image
+                                            source={{ uri: IMAGE_URL }}
+                                            resizeMode="cover"
+                                            style={{width: 100, height: 150, borderRadius: 10}}
+                                        />
+                                    )} item={item} />
                                     <View style={{flex: 1, marginLeft: 12}}>
                                         <View>
                                             <Text style={{fontSize: 22, paddingRight: 16}}>
